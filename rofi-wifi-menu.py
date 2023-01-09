@@ -40,7 +40,7 @@ for interface in wifi_network_interfaces:
         tmp_wifi_ap_list += final_ap + "\n"
 
     # Make AP list prettier
-    command = 'echo -e "{}" | column -t -s "~~~" -o "       " | column -t -s "***" -o ""'.format(tmp_wifi_ap_list)
+    command = 'echo "{}" | column -t -s "~~~" -o "       " | column -t -s "***" -o ""'.format(tmp_wifi_ap_list)
     command_output = os.popen(command).read()    
     wifi_ap_list += command_output
 
@@ -58,7 +58,7 @@ else:
 
 # ------------------------------
 # Use rofi to select wifi network/option
-command = 'echo -e "{}\n{}" | uniq -u | rofi -dmenu -i -select-row 1 -p "Wi-Fi SSID"'.format(option,wifi_ap_list)
+command = 'echo "{}\n{}" | uniq -u | rofi -dmenu -i -select-row 1 -p "Wi-Fi SSID"'.format(option,wifi_ap_list)
 chosen_network = os.popen(command).read()
 if chosen_network in ["\n", " ", "", None]: # Prevent bug
     quit()
