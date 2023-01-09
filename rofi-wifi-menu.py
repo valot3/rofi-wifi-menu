@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+# valot3
+# https://github.com/valot3/rofi-wifi-menu
+
 # ------------------------------
 # Imports
 import os
